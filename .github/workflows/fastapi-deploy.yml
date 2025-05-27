@@ -1,0 +1,23 @@
+
+name: Deploy FastAPI Microservices
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: pip install -r apps/fastapi/requirements.txt
+    - name: Run tests (placeholder)
+      run: echo "No tests yet"
+    - name: Deploy to Heroku/DigitalOcean (placeholder)
+      run: echo "Implement deployment script or use platform integration"

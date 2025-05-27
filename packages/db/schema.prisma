@@ -1,0 +1,81 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  name       String?
+  email      String?
+  spotifyId  String?
+  googleId   String?
+  createdAt  DateTime @default(now())
+  peers      Peer[]
+  metrics    MatrixMetric[]
+  pricingLogs PricingLog[]
+  splits     Split[]
+  drafts     Draft[]
+}
+
+model Peer {
+  id           String   @id @default(uuid())
+  userId       String
+  peerArtistId String?
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+}
+
+model MatrixMetric {
+  id             String   @id @default(uuid())
+  userId         String
+  incomeSource   String?
+  sharePct       Float?
+  yoyGrowth      Float?
+  marginPct      Float?
+  fanImpactScore Float?
+  bcgCategory    String?
+  timestamp      DateTime?
+  user           User     @relation(fields: [userId], references: [id])
+}
+
+model PricingLog {
+  id              String   @id @default(uuid())
+  userId          String
+  serviceType     String?
+  recommendedLow  Float?
+  recommendedHigh Float?
+  actualFee       Float?
+  createdAt       DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id])
+}
+
+model Split {
+  id             String   @id @default(uuid())
+  userId         String
+  trackId        String?
+  collaboratorId String?
+  sharePct       Float?
+  user           User     @relation(fields: [userId], references: [id])
+}
+
+model Draft {
+  id        String   @id @default(uuid())
+  userId    String
+  tipId     String?
+  content   String?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  tip       Tip?     @relation(fields: [tipId], references: [id])
+}
+
+model Tip {
+  id        String   @id @default(uuid())
+  tipText   String?
+  createdAt DateTime @default(now())
+  drafts    Draft[]
+}
