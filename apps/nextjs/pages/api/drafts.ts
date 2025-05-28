@@ -1,5 +1,5 @@
 
-import { Draft } from '@types'
+import type { Draft } from 'types'
 export default function handler(req: import('next').NextApiRequest, res: import('next').NextApiResponse) {
   const { userId } = req.headers
   // Stub: would fetch drafts for user from DB
