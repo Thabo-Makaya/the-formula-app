@@ -1,10 +1,9 @@
-
 import React, { useState } from "react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { usePricing, PricingFormType } from "@/hooks/usePricing"
-import type { PricingResult } from "packages/types"
+import type { PricingResult } from '../src/types'
 
 function LabeledInput({ label, ...props }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (

@@ -1,6 +1,6 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { MatrixMetricAgg } from '../../../packages/types'
+import type { MatrixMetricAgg } from '../../src/types'
 import { createClient } from '@supabase/supabase-js'
 
 const SUPABASE_URL = "https://urodswtgvalmdwtvcbse.supabase.co"

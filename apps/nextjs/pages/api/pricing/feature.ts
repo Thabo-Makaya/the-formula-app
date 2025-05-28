@@ -1,6 +1,7 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { calculateFeatureFee } from 'packages/pricing/pricingCalculator'
+import type { FeatureFeeParams } from '../../../src/types'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {

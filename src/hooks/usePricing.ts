@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import type { PricingResult, PerformanceFeeParams, FeatureFeeParams, SyncFeeParams } from "packages/types"
+import type { PricingResult, PerformanceFeeParams, FeatureFeeParams, SyncFeeParams } from '../../apps/nextjs/src/types'
 
 export type PricingFormType = "performance" | "feature" | "sync"
 

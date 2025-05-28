@@ -1,8 +1,6 @@
 
-import type { NextApiRequest, NextApiResponse } from 'next'
-import type { Draft } from '../../../packages/types'
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+import type { Draft } from '../../src/types'
+export default function handler(req: import('next').NextApiRequest, res: import('next').NextApiResponse) {
   const { userId } = req.headers
   // Stub: would fetch drafts for user from DB
   const example: Draft = {

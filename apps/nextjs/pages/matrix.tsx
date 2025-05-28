@@ -1,6 +1,5 @@
-
 import * as React from 'react'
-import type { MatrixMetricAgg } from '../../packages/types'
+import type { MatrixMetricAgg } from '@types'
 import { useEffect, useState } from 'react'
 import { ResponsiveContainer, ScatterChart, XAxis, YAxis, ZAxis, Tooltip, Scatter, Legend } from 'recharts'
 
