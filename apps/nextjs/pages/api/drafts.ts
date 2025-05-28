@@ -1,5 +1,5 @@
 
-import type { Draft } from '../../src/types'
+import type { Draft } from '@/types' // or '../../src/types', depending on tsconfig paths
 export default function handler(req: import('next').NextApiRequest, res: import('next').NextApiResponse) {
   const { userId } = req.headers
   // Stub: would fetch drafts for user from DB
