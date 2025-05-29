@@ -1,12 +1,14 @@
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
-import type { NextPage } from 'next'
-
-const Home: NextPage = () => (
-  <main style={{ minHeight: "100vh", background: "#f9fafb", display: "flex", alignItems: "center", justifyContent: "center" }}>
-    <div>
-      <h1 style={{ fontSize: "2rem", fontWeight: 700 }}>THE FORMULA: Music Biz Toolkit</h1>
-      <p style={{ color: "#6b7280", marginTop: "1rem" }}>Monorepo bootstrapped — Next.js, Supabase, FastAPI, CI/CD ready.</p>
-    </div>
-  </main>
-)
-export default Home
+export default function HomePage() {
+  return (
+    <Tabs defaultValue="account" className="w-[400px]">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Make changes to your account here.</TabsContent>
+      <TabsContent value="password">Change your password here.</TabsContent>
+    </Tabs>
+  )
+}
